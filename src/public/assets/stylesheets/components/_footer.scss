@@ -1,0 +1,37 @@
+@use '../abstracts' as a;
+
+.ftr {
+  background-color: a.$mars-red;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  font-size: #{a.$font-size-sm - 0.2};
+  @include a.flexbox-config(
+    $flex-direction: row,
+    $justify-content: space-between
+  );
+  width: 100%;
+  height: auto;
+  padding: #{a.$padding-rg-em * 1.2};
+
+  z-index: 20;
+
+  @include tablet-breakpoint {
+    font-size: #{a.$font-size-sm - 0.2em};
+    padding: a.$padding-rg-em;
+  }
+  @include desktop-breakpoint {
+    font-size: #{a.$font-size-sm + 0.2em};
+    padding: a.$padding-rg-em;
+  }
+
+  @include lg-screen-desktop {
+    font-size: a.$font-size-md;
+    padding: #{a.$padding-rg-em * 1.5};
+  }
+
+  // .ftr__copyright {
+  //   + .ftr__info {
+  //   }
+  // }
+}

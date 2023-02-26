@@ -1,0 +1,44 @@
+@use '../abstracts' as a;
+
+// mobile first styles
+
+.rover-section__btn-container {
+  width: 100vw;
+  @include a.flexbox-config($justify-content: space-around);
+}
+
+.rover-section__btn-tab {
+  width: 33.4%;
+  border: none;
+  font-size: a.$font-size-sm-rem;
+  color: a.$white;
+  background-color: a.$tabs;
+  height: 100px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: scale-color(a.$tabs, $lightness: -10%);
+  }
+
+  &:active {
+    background-color: a.$orange;
+  }
+
+  &:focus {
+    background-color: a.$orange;
+  }
+
+  // breakpoints
+  @include extra-sm-phones-max {
+    padding: a.$padding-md-em 0;
+  }
+  @include tablet-breakpoint {
+    font-size: #{a.$font-size-sm-rem * 1.5};
+  }
+  @include desktop-breakpoint {
+    font-size: #{a.$font-size-sm-rem * 1.5};
+  }
+  @include lg-screen-desktop {
+    font-size: a.$font-size-md-rem;
+  }
+}

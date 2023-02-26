@@ -1,0 +1,86 @@
+@use '../abstracts' as a;
+/* -------------------  MOBILE  --------------------- */
+
+// mobile first styles
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background-color: #003b59;
+  background: radial-gradient(ellipse at bottom, #1b2735, #090a0f 100%);
+}
+.mars-intro {
+  position: relative;
+  z-index: 20;
+  background-color: a.$blue;
+  width: 100vw;
+  height: auto;
+  @include a.flexbox-config($flex-direction: column, $align-items: center);
+  padding: {
+    top: clamp(2rem, 10vw, 8rem);
+    bottom: clamp(3rem, 10vw, 8rem);
+  }
+  // breakpoints
+  @include tablet-breakpoint {
+    background-color: a.$blue;
+    width: 100vw;
+    height: auto;
+    @include a.flexbox-config($flex-direction: column, $align-items: center);
+  }
+  @include desktop-breakpoint {
+    background-color: a.$blue;
+    width: 100vw;
+    height: auto;
+    @include a.flexbox-config($flex-direction: column, $align-items: center);
+  }
+}
+
+.mars-intro__title {
+  font-size: clamp(2.5rem, 5vw, 7rem);
+  padding: 0.2em 0.5em;
+  color: a.$white;
+  font-weight: 700;
+  margin: a.$margin-rem-spacing-md 0 a.$margin-rem-spacing-md 0;
+
+  // breakpoints
+  @include tablet-breakpoint {
+    padding: 0;
+
+    margin-bottom: a.$margin-em-spacing-sm;
+  }
+  @include desktop-breakpoint {
+    padding: #{a.$padding-xxs-em / 2};
+    color: a.$white;
+  }
+  @include lg-screen-desktop {
+    padding: 0;
+  }
+}
+
+.mars-intro__text {
+  color: a.$white;
+  padding: 0 1.8em 0 1.8em;
+  font-size: clamp(0.8em, 2vw, 2em);
+  font-weight: 400;
+
+  @include xs-tablets {
+  }
+
+  @include tablet-breakpoint {
+    padding: 0 1.8em 0 1.8em;
+  }
+  @include desktop-breakpoint {
+    padding: 0 a.$padding-lg-em 0 a.$padding-lg-em;
+  }
+}

@@ -1,0 +1,81 @@
+@use '../abstracts' as a;
+
+// mobile first styles
+
+.main-content__latest-photos-title {
+  @include a.flexbox-config($justify-content: center);
+  font-size: #{a.$font-size-sm * 2.5};
+  color: a.$white;
+  margin-top: #{a.$margin-em-spacing-sm - 0.4};
+  @include desktop-breakpoint {
+    margin-bottom: #{a.$margin-em-spacing-md * 4};
+  }
+}
+
+.main-content__scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 1em;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  margin: a.$margin-em-spacing-lg;
+  cursor: pointer;
+  box-shadow: 19px 15px 15px rgb(0 0 0 / 20%);
+  @include tablet-breakpoint {
+    grid-auto-columns: 40%;
+    margin: #{a.$margin-em-spacing-md * 2};
+  }
+  @include desktop-breakpoint {
+    grid-auto-columns: 45%;
+    margin: #{a.$margin-em-spacing-lg * 3};
+  }
+  @include lg-screen-desktop {
+    grid-auto-columns: 65%;
+    margin: #{a.$margin-em-spacing-sm * 15};
+  }
+
+  .main-content__scroll-item {
+    display: grid;
+
+    > img {
+      inline-size: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      @include lg-screen-desktop {
+        inline-size: 100%;
+        aspect-ratio: 20/9;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.main-content--snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1em;
+
+  > * {
+    scroll-snap-align: start;
+  }
+}
+
+.main-content__loading-images {
+  @extend %loading;
+  font-size: #{a.$font-size-md * 2.5};
+
+  white-space: nowrap;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

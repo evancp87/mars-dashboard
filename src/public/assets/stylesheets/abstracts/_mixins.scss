@@ -1,0 +1,98 @@
+@mixin bgGradient($color) {
+  background-image: linear-gradient(lighten($color, 12%) 0%, $color 70%);
+}
+
+// vendor prefix mixin
+
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value;
+    #{$property}: $value;
+  }
+}
+
+// mixin for writing flexbox DRY
+@mixin flexbox-config(
+  $justify-content: false,
+  $flex: false,
+  $flex-direction: false,
+  $align-items: false
+) {
+  display: flex;
+
+  @if $justify-content != false {
+    justify-content: $justify-content;
+  }
+
+  @if $flex != false {
+    flex: $flex;
+  }
+
+  @if $flex-direction != false {
+    flex-direction: $flex-direction;
+  }
+
+  @if $align-items != false {
+    align-items: $align-items;
+  }
+}
+
+// Media query mixins
+
+@mixin lg-screen-desktop {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin desktop-breakpoint {
+  @media (min-width: 1224px) {
+    @content;
+  }
+}
+
+@mixin xl-tablets {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin tablet-breakpoint {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin tablet-breakpoint-max-width {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin xs-tablets {
+  @media (min-width: 500px) {
+    @content;
+  }
+}
+@mixin xs-tablets-v2 {
+  @media (min-width: 450px) {
+    @content;
+  }
+}
+
+@mixin md-phone {
+  @media (min-width: 350px) {
+    @content;
+  }
+}
+
+@mixin md-phone-max-width {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin extra-sm-phones-max {
+  @media (max-width: 300px) {
+    @content;
+  }
+}

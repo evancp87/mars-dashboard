@@ -1,0 +1,85 @@
+@use '../abstracts/' as a;
+
+// mobile first styles
+
+.sidebar {
+  flex: 0 0 300px;
+  padding: a.$font-size-sm-rem;
+  height: auto;
+
+  .sidebar__rover-name {
+    font-size: #{a.$font-size-md + 0.5};
+    color: a.$white;
+    font-weight: 800;
+    margin: {
+      top: 0;
+      bottom: a.$margin-em-spacing-sm;
+    }
+    @include tablet-breakpoint-max-width {
+      font-size: a.$font-size-md;
+    }
+    @include lg-screen-desktop {
+      font-size: a.$font-size-lg;
+    }
+  }
+}
+
+.sidebar__roverinfo-item {
+  margin: a.$margin-em-spacing-md 0 a.$margin-em-spacing-md 0;
+  font-size: #{a.$font-size-sm * 1.5};
+  @include a.flexbox-config($flex-direction: column);
+
+  color: a.$white;
+  border-bottom: 1px solid a.$white;
+  white-space: nowrap;
+  @include a.flexbox-config(
+    $flex-direction: row,
+    $justify-content: space-between
+  );
+  @include lg-screen-desktop {
+    font-size: a.$font-size-md;
+  }
+
+  &:last-of-type {
+    margin: a.$margin-em-spacing-md 0 a.$margin-em-spacing-md 0;
+  }
+
+  + .sidebar__rover-fact {
+    font-size: #{a.$font-size-sm * 1.5};
+
+    color: a.$white;
+  }
+}
+
+.sidebar__loading-rovers {
+  @extend %loading;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.sidebar__roverinfo-item > span {
+  @include a.flexbox-config($justify-content: space-between);
+
+  white-space: nowrap;
+  color: a.$orange;
+}
+
+.sidebar--blue {
+  background-color: a.$blue;
+  @include a.bgGradient(a.$blue);
+}
+
+.sidebar__main-rover-img {
+  max-width: 100%;
+  height: auto;
+}
