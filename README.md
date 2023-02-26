@@ -6,9 +6,7 @@ This is a Mars rover dashboard that consumes the NASA API. The dashboard allows 
 
 ### Getting Started
 
-We have supplied some of the foundational code for you. So follow these steps to get started:
-
-1. We'll start with the typical setup - clone this repo and install the dependencies
+1. Clone this repo and install the dependencies
 
 - [ ] For this project I am using yarn as my package manager, so to install your dependencies run:
 
