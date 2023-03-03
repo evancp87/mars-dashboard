@@ -7,7 +7,18 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
-app.use(cors);
+const allowedOrigins = ["https://mars-rover-dashboard.onrender.com"];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Origin ${origin} not allowed by CORS`));
+      }
+    },
+  })
+);
 
 const Immutable = require("immutable");
 
