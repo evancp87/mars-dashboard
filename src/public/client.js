@@ -58,7 +58,7 @@ const sidebar = () => {
   if (roverData.hasOwnProperty("rover")) {
     return `
   <h2 class='sidebar__rover-name'>${roverData.rover.get("name")}</h2>
-  <div><img src='https://s3.eu-west-2.amazonaws.com/mars-rover-dashboard/${
+  <div><img src='s3.amazonaws.com/mars-rover-dashboard/${
     roverData.rover.get("name") + ".jpg"
   }' alt='rover image' class='sidebar__main-rover-img'>
   <ul class='sidebar__rover-info'>
