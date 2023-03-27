@@ -260,7 +260,7 @@ const getImageOfTheDay = (state) => {
 
 // api call to fetch an array of latest rover images
 const getRoverImage = (rover) => {
-  const images = fetch(`http://localhost:3000/rovers/${rover}`)
+  const images = fetch(`/rovers/${rover}`)
     .then((res) => res.json())
     .then((rovers) => {
       console.log(rovers);
@@ -272,7 +272,7 @@ const getRoverImage = (rover) => {
 
 // api call to fetch rover data from the manifests
 const getRoverInfo = (chosenRover) => {
-  const roverInfo = fetch(`http://localhost:3000/manifests/${chosenRover}`)
+  const roverInfo = fetch(`/manifests/${chosenRover}`)
     .then((res) => res.json())
 
     .then((rover) => {
