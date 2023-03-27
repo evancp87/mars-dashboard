@@ -59,7 +59,7 @@ const sidebar = () => {
     return `
   <h2 class='sidebar__rover-name'>${roverData.rover.get("name")}</h2>
   <div><img src='https://s3.amazonaws.com/mars-rover-dashboard/${
-    roverData.rover.get("name") + ".jpg"
+    roverData.rover.get("name").toLowerCase() + ".jpg"
   }' alt='rover image' class='sidebar__main-rover-img'>
   <ul class='sidebar__rover-info'>
   <li class='sidebar__roverinfo-item'><span>Landing Date:</span> ${roverData.rover.get(
