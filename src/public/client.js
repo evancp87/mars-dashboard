@@ -249,7 +249,7 @@ const ImageOfTheDay = (apod) => {
 const getImageOfTheDay = (state) => {
   let { apod } = state;
 
-  fetch("http://localhost:3000/apod")
+  fetch("/apod")
     .then((res) => res.json())
     .then((apod) => updateStore(store, { apod }));
 };
