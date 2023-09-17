@@ -249,7 +249,7 @@ const ImageOfTheDay = (apod) => {
 const getImageOfTheDay = (state) => {
   let { apod } = state;
 
-  fetch("/apod")
+  fetch("https://mars-rover-dashboard-7uwc.onrender.com/apod")
     .then((res) => res.json())
     .then((apod) => updateStore(store, { apod }));
 };
@@ -260,7 +260,7 @@ const getImageOfTheDay = (state) => {
 
 // api call to fetch an array of latest rover images
 const getRoverImage = (rover) => {
-  const images = fetch(`/rovers/${rover}`)
+  const images = fetch(`https://mars-rover-dashboard-7uwc.onrender.com/rovers/${rover}`)
     .then((res) => res.json())
     .then((rovers) => {
       console.log(rovers);
@@ -272,7 +272,7 @@ const getRoverImage = (rover) => {
 
 // api call to fetch rover data from the manifests
 const getRoverInfo = (chosenRover) => {
-  const roverInfo = fetch(`/manifests/${chosenRover}`)
+  const roverInfo = fetch(`https://mars-rover-dashboard-7uwc.onrender.com/manifests/${chosenRover}`)
     .then((res) => res.json())
 
     .then((rover) => {
