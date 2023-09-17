@@ -83,34 +83,12 @@ const sidebar = () => {
 };
 
 // OnClick function- displays each selected rover
-const displayRoverInfo = (el) => {
-  let selectedRover = store.get("selectedRover");
-  let roverData = store.get("roverData");
-  let roverImages = store.get("roverImages");
-
-  if (el.id === "Curiosity") {
+const displayRoverInfo = (roverName) => {
     updateStore(store, {
-      selectedRover: "Curiosity",
-      roverData: getRoverInfo("Curiosity"),
-      roverImages: getRoverImage("Curiosity"),
+      selectedRover: roverName.id,
+      roverData: getRoverInfo(roverName.id),
+      roverImages: getRoverImage(roverName.id),
     });
-    console.log(store);
-  } else if (el.id === "Spirit") {
-    updateStore(store, {
-      selectedRover: "Spirit",
-      roverData: getRoverInfo("Spirit"),
-      roverImages: getRoverImage("Spirit"),
-    });
-    console.log(store);
-  } else if (el.id === "Opportunity") {
-    updateStore(store, {
-      selectedRover: "Opportunity",
-      roverData: getRoverInfo("Opportunity"),
-      roverImages: getRoverImage("Opportunity"),
-    });
-    console.log(store);
-  }
-  return selectedRover;
 };
 
 // Renders a fact based on the rover selected
